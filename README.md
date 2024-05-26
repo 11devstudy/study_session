@@ -1,6 +1,6 @@
 # DevDogs 개발 스터디
 
-![final.jpeg](../_resources/final.jpeg)
+![final.jpeg](_resources/final.jpeg)
 
 ## 1. 스터디 규칙
 - 매주 목요일 저녁 8시 세션
