@@ -20,7 +20,7 @@
 
 다양한 종류의 실행 시간이 존재한다.
 
-![image01](../img/tech-interview/comparing-big-o-function.png)
+![image01](../../_resources/img/tech-interview/comparing-big-o-function.png)
 
 # **최선의 경우, 최악의 경우, 평균적인 경우**
 
@@ -103,7 +103,7 @@ big-O 표기법은 `수행 시간이 어떻게 변하는지를 표현해주는 �
 - $O(N + logN)$은 $O(N)$이 된다.
 - $O(5*2^N + 1000N^{100})$은 $O(2^N)$이 된다.
 
-![image02](../img/tech-interview/big-o.png)
+![image02](../../_resources/img/tech-interview/big-o.png)
 
 # 여러 부분으로 이루어진 알고리즘
 

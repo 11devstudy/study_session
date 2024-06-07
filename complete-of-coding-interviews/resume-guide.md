@@ -50,6 +50,6 @@
 
 **준비 절차**
 
-![image01](img/preparation-stage-1.png)
+![image01](../_resources/img/preparation-stage-1.png)
 
-![image01](img/preparation-stage-2.png)
+![image01](../_resources/img/preparation-stage-2.png)
