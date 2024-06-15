@@ -14,4 +14,4 @@
 
 - [Java](https://github.com/devdogs94/study_session/blob/main/complete-of-coding-interviews/tech-interview/java.md)
 - [데이터베이스](https://github.com/devdogs94/study_session/blob/main/complete-of-coding-interviews/tech-interview/database.md)
-- [스레드와 락](https://github.com/devdogs94/study_session/blob/main/complete-of-coding-interviews/tech-interview/stack-and-queue.md)
+- [스레드와 락](https://github.com/devdogs94/study_session/blob/main/complete-of-coding-interviews/tech-interview/thread-and-lock.md)
