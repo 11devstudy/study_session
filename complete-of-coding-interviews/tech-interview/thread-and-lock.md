@@ -110,6 +110,100 @@ public class ExampleB {
     - **Runnable 인터페이스** 구현 시 다른 클래스를 상속할 수 있다.
 - Thread 클래스의 모든 것을 상속받는 것이 너무 부담되는 경우 Runnable을 구현하는 편이 나을 수도 있다.
 
+
+# 동기화와 락
+
+> 자바는 공유 자원에 대한 접근을 제어하기 위한 동기화 방법을 제공한다.
+> 
+- 스레드가 서로 데이터를 공유할 수 있다는 점은 장점이긴 하지만, 두 스레드가 같은 자원을 동시에 변경하는 경우 문제가 될 수 있다.
+- `synchronized` 와 `Lock` 키워드는 동기화 구현을 위한 기본이 된다.
+
+### 동기화된 메서드
+
+> 통상적으로 `synchronized` 키워드를 사용할 때는 공유 자원에 대한 접근을 제어한다.
+> 
+- **메서드**, **특정 코드 불록**에 적용할 수 있다.
+- 여러 스레드가 같은 객체를 동시에 실행하는 것 또한 방지해준다.
+
+```java
+public class MyClass extends Thread {
+	private String name;
+	private MyObject myObj;
+	
+	public MyClass(MyObject obj, String n) {
+		name = n;
+		myObj = obj;
+	}
+	
+	public void run() {
+		myObj.foo(name);
+	}
+}
+
+public class MyObject {
+	public synchronized void foo(String name) {
+		try {
+			// Thread starting..
+			Thread.sleep(3000);
+			// Thread ending..
+		} catch (InterruptedException exc) {
+		// Thread Interrupted..
+		}
+	}	
+}
+```
+
+- 서로 다른 객체인 경우 동시에 MyObject.foo() 호출이 가능하다.
+- 같은 Obj를 가리키고 있는 경우 하나만 foo()를 호출할 수 있고, 다른 하나는 기다리고 있어야 한다.
+
+정적 메서드는 `클래스 락`에 의해 동기화된다.
+
+- 같은 클래스에 있는 동기화된 정적 메서드는 두 스레드에서 동시에 실행될 수 없다.
+
+```java
+public class MyClass extends Thread {
+	...
+	public void run() {
+		if (name.equals("1") {
+			MyObject.foo(name);
+		} else if (name.equals("2")) {
+			MyObject.bar(name);
+		}
+	}
+}
+
+public class MyObject {
+	public static synchronized void foo(String name) { .. }
+	public static synchronized void bar(String name) { .. }
+}
+```
+
+### 동기화된 블록
+
+> 특정한 **코드 블록**을 동기화할 수도 있다.
+> 
+- 메서드를 동기화하는 것과 아주 비슷하게 동작한다.
+
+```java
+public class MyClass extends Thread {
+	...
+	public void run() {
+		myObj.foo(name);
+	}
+}
+
+public class MyObject {
+	public void foo(String name) {
+		synchronized(this) {
+			...
+		}
+	}
+}
+```
+
+- 메서드를 동기화하는 것과 마찬가지로,
+- MyObject 인스턴스 하나당 하나의 스레드만이 synchronized 블록 안의 코드를 실행할 수 있다.
+
 <details>
 <summary></summary>
 
