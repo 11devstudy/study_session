@@ -204,6 +204,71 @@ public class MyObject {
 - 메서드를 동기화하는 것과 마찬가지로,
 - MyObject 인스턴스 하나당 하나의 스레드만이 synchronized 블록 안의 코드를 실행할 수 있다.
 
+
+### 락(Lock)
+
+> 더 세밀하게 동기화를 제어하고 싶을 때는 락을 사용한다.
+> 
+- 락을 공유 자원에 붙이면 해당 자원에 대한 접근을 동기화할 수 있다.
+- 스레드가 해당 자원을 접근하려면 우선 그 자원에 붙어 있는 **락을 획득**해야 한다.
+- **특정 시간에 락을 쥐고 있을 수 있는 스레드는 하나뿐**이다.
+    - 따라서 해당 공유자원은 한 번에 한 스레드만이 사용할 수 있다.
+- 어떤 자원이 프로그램 내의 이곳저곳에서 사용되지만 한 번에 한 스레드만 사용하도록 만들고자 할 때 주로 락을 이용한다.
+
+```java
+public class LockedATM {
+    private Lock lock;
+    private int balance = 100;
+
+    public LockedATM() {
+        lock = new ReentrantLock();
+    }
+
+    public int withdraw(int value) {
+        lock.lock();
+        int temp = balance;
+        try {
+            temp = temp - value;
+            balance = temp;
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        lock.unlock();
+        return temp;
+    }
+
+    public int deposit(int value) {
+        lock.lock();
+        int temp = balance;
+        try {
+            System.out.println("입금 시작");            
+            temp = temp + value;
+            
+            System.out.println("입금 완료");
+            balance = temp;
+            
+            System.out.println("현재 잔고 : "+ balance);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        lock.unlock();
+        return temp;
+    }
+
+    public int balance() {
+        return this.balance;
+    }
+```
+
+
+
+
+
+
+
+
+
+
 <details>
 <summary></summary>
 
