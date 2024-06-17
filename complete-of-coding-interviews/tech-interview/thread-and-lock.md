@@ -1,7 +1,8 @@
 # Thread and Lock
 
+# 자바의 스레드
+
 > 자바의 모든 스레드는 `java.lang.Thread` 클래스 객체에 의해 생성되고 제어된다.
-> 
 
 독립적인 응용 프로그램이 실행될 때, main() 메서드를 실행하기 위한 하나의 user thread 가 자동으로 만들어지는데, 이 스레드를 main thread 라고 부른다.
 
@@ -10,7 +11,7 @@
 - `java.lang.Runnable` 인터페이스 구현하기
 - `java.lang.Thread` 클래스를 상속받기
 
-## java.lang.Runnable 인터페이스 구현하기
+### java.lang.Runnable 인터페이스 구현하기
 
 ```java
 public interface Runnable {
