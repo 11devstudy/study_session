@@ -22,12 +22,12 @@
 
 - Http 헤더에 멱등키를 포함
     
-    ![Untitled](%E1%84%86%E1%85%A7%E1%86%A8%E1%84%83%E1%85%B3%E1%86%BC%E1%84%8F%E1%85%B5%20(idempotent%20key)%20f583038dec6a448d8b2391534e4309fa/Untitled.png)
+    ![idem01](_resources/idem01.png)
     
 
 **순서도**
 
-![Untitled](%E1%84%86%E1%85%A7%E1%86%A8%E1%84%83%E1%85%B3%E1%86%BC%E1%84%8F%E1%85%B5%20(idempotent%20key)%20f583038dec6a448d8b2391534e4309fa/Untitled%201.png)
+![idem02](_resources/idem02.png)
 
 - 요청마다 헤더에 멱등키 확인
 - 멱등키 저장 DB에 존재하는 키인지 확인
