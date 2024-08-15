@@ -22,12 +22,12 @@
 
 - Http 헤더에 멱등키를 포함
     
-    ![idem01.png](_resources/idem01.png)
+    ![idem01.png](../_resources/idem01.png)
     
 
 **순서도**
 
-![idem02.png](_resources/idem02.png)
+![idem02.png](../_resources/idem02.png)
 
 - 요청마다 헤더에 멱등키 확인
 - 멱등키 저장 DB에 존재하는 키인지 확인
